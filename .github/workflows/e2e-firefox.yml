@@ -44,8 +44,8 @@ jobs:
 
       - name: Run Cypress marged tests
         run: |
-          npx mochawesome-merge "cypress/results/*.json" > mochawesome.json
-          npx marge mochawesome.json
+          npx mochawesome-merge "cypress/results/*.json" > ${{ matrix.firefox-version}}.json
+          npx marge ${{ matrix.firefox-version}}.json
 
       # Step 6: Upload Cypress videos and screenshots (optional)
       - name: Upload Cypress artifacts

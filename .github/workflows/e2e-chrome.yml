@@ -17,7 +17,7 @@ jobs:
     strategy:
       matrix:
         chrome-version: [stable, beta, dev] # Test against multiple Chrome versions
-        mozilla-version: [latest] # Test against multiple Firefox versions
+      
     steps:
       # Step 1: Checkout the repository
       - name: Checkout code
@@ -47,8 +47,8 @@ jobs:
       
       - name: Run Cypress marged tests
         run: |
-          npx mochawesome-merge "cypress/results/*.json" > mochawesome.json
-          npx marge mochawesome.json
+          npx mochawesome-merge "cypress/results/*.json" > ${{ matrix.chrome-version }}.json
+          npx marge ${{ matrix.chrome-version }}.json
 
       # Step 6: Upload Cypress videos and screenshots (optional)
       - name: Upload Cypress artifacts
