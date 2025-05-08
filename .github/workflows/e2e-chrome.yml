@@ -43,11 +43,11 @@ jobs:
       - name: Set up Firefox
         uses: browser-actions/setup-firefox@v1
         with:
-          mozilla-version: ${{ matrix.mozilla-version }}
+          firefox-version: ${{ matrix.mozilla-version }}
 
       # Step 5: Run Cypress tests
       - name: Run Cypress tests
-        run: npx cypress run --browser chrome
+        run: npx cypress run --browser chrome  
 
       # Step 6: Upload Cypress videos and screenshots (optional)
       - name: Upload Cypress artifacts
