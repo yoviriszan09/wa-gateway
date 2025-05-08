@@ -42,6 +42,11 @@ jobs:
       - name: Run Cypress tests
         run: npx cypress run --browser firefox  
 
+      - name: Run Cypress marged tests
+        run: |
+          npx mochawesome-merge "cypress/results/*.json" > mochawesome.json
+          npx marge mochawesome.json
+
       # Step 6: Upload Cypress videos and screenshots (optional)
       - name: Upload Cypress artifacts
         if: failure()
@@ -49,5 +54,4 @@ jobs:
         with:
           name: cypress-artifacts
           path: |
-            cypress/videos
-            cypress/screenshots
+            mochawesome-report/

@@ -9,4 +9,11 @@ module.exports = defineConfig({
       return config;
     },
   },
+  reporter: 'mochawesome',
+  reporterOptions: {
+    reportDir: 'cypress/results',
+    overwrite: false,
+    html: false,
+    json: true,
+  },
 });
