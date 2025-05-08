@@ -1,4 +1,4 @@
-name: Cypress Tests
+name: Cypress Tests firefox
 
 on:
   push:
@@ -40,7 +40,7 @@ jobs:
 
       # Step 5: Run Cypress tests
       - name: Run Cypress tests
-        run: npx cypress run --browser chrome  
+        run: npx cypress run --browser firefox  
 
       # Step 6: Upload Cypress videos and screenshots (optional)
       - name: Upload Cypress artifacts
