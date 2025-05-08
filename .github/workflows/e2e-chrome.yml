@@ -52,7 +52,7 @@ jobs:
 
       # Step 6: Upload Cypress videos and screenshots (optional)
       - name: Upload Cypress artifacts
-        if: failure()
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: cypress-artifacts
