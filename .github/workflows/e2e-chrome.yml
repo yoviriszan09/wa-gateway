@@ -39,22 +39,21 @@ jobs:
         with:
           chrome-version: ${{ matrix.chrome-version }}
 
-
       # Step 5: Run Cypress tests
       - name: Run Cypress tests
         run: npx cypress run --browser chrome  
 
-      
-      - name: Run Cypress marged tests
+      # Step 6: Merge Cypress test results and generate report
+      - name: Run Cypress merged tests
         run: |
           npx mochawesome-merge "cypress/results/*.json" > ${{ matrix.chrome-version }}.json
           npx marge ${{ matrix.chrome-version }}.json
 
-      # Step 6: Upload Cypress videos and screenshots (optional)
+      # Step 7: Upload Cypress artifacts (unique name per Chrome version)
       - name: Upload Cypress artifacts
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-artifacts
+          name: cypress-artifacts-${{ matrix.chrome-version }} # Unique artifact name
           path: |
             mochawesome-report/
