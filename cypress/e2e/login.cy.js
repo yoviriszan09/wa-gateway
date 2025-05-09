@@ -14,9 +14,9 @@ describe('Login Test', () => {
       const password = Cypress.env('PASSWORD') || 'yourpassword'; // Use an environment variable or a hardcoded value
   
       // Interact with the login form
-      cy.get(':nth-child(1) > .relative > .w-full').type(phoneNumber); // Adjust the selector if needed
-      cy.get(':nth-child(2) > .relative > .w-full').type(password); // Adjust the selector if needed
-      cy.get('.px-4').click(); // Adjust the selector if needed
+      cy.get("[//input[@type='tel']").type(phoneNumber); // Adjust the selector if needed
+      cy.get("[//input[@type='password']").type(password); // Adjust the selector if needed
+      cy.get("[//button[@type='submit']").click(); // Adjust the selector if needed
   
     //   cy.contains('Invalid phoneNumber or password').should('be.visible');
       // Assert that the user is redirected to the dashboard or another page
@@ -30,9 +30,9 @@ describe('Login Test', () => {
       const password = Cypress.env('PASSWORD') || 'wrongpassword'; // Use an environment variable or a hardcoded value
   
       // Interact with the login form
-      cy.get(':nth-child(1) > .relative > .w-full').type(phoneNumber); // Adjust the selector if needed
-      cy.get(':nth-child(2) > .relative > .w-full').type(password); // Adjust the selector if needed
-      cy.get('.px-4').click(); // Adjust the selector if needed
+      cy.get("[//input[@type='tel']").type(phoneNumber); // Adjust the selector if needed
+      cy.get("[//input[@type='password']").type(password); // Adjust the selector if needed
+      cy.get("[//button[@type='submit']").click(); // Adjust the selector if needed
   
       // Assert that an error message is displayed
     //   cy.contains('Invalid phoneNumber or password').should('be.visible'); // Adjust the text as needed
